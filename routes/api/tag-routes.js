@@ -21,9 +21,8 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
   // create a new tag
-  Tag.create({
-    tag_name: req.body.tag_name
-  })
+  Tag.create(req.body)
+  .then((tag) => res.status(200).json(tag))
 });
 
 router.put('/:id', (req, res) => {
@@ -33,6 +32,7 @@ router.put('/:id', (req, res) => {
       id: req.params.id
     }
   })
+  .then((tag) => res.status(200).json(tag))
 });
 
 router.delete('/:id', (req, res) => {
@@ -42,6 +42,7 @@ router.delete('/:id', (req, res) => {
       id: req.params.id
     }
   })
+  .then((tag) => res.status(200).json(tag))
 });
 
 module.exports = router;

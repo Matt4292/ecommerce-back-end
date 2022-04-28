@@ -100,6 +100,7 @@ router.delete('/:id', (req, res) => {
       id: req.params.id
     }
   })
+  .then((product) => res.status(200).json(product))
 });
 
 module.exports = router;
